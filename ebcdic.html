@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Translate between EBCDIC (CP037) and ASCII from hex bytes or text.">
+  <title>EBCDIC ↔ ASCII — Mainframe Tools</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">▚</span>
+        <span>MAINFRAME<span class="brand-accent">TOOLS</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="calculator.html">Calculator</a>
+        <a href="abends.html">Abends</a>
+        <a href="ebcdic.html" aria-current="page">EBCDIC</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>EBCDIC ↔ ASCII</h1>
+    <p class="lede">Translate between EBCDIC (code page CP037) and ASCII, in both directions.</p>
+
+    <div class="toolbar">
+      <div class="seg" role="group" aria-label="Conversion direction">
+        <button type="button" id="dir-e2a" aria-pressed="true">EBCDIC → ASCII</button>
+        <button type="button" id="dir-a2e" aria-pressed="false">ASCII → EBCDIC</button>
+      </div>
+
+      <label class="field" id="format-field">
+        <span class="field-label">EBCDIC input format</span>
+        <select id="input-format">
+          <option value="hex">Hex bytes</option>
+          <option value="text">Text (as displayed)</option>
+        </select>
+      </label>
+
+      <button class="btn" type="button" id="btn-swap">Swap</button>
+      <button class="btn" type="button" id="btn-clear">Clear</button>
+    </div>
+
+    <div class="ebcdic-grid">
+      <section class="panel">
+        <div class="panel-head">
+          <h2 id="input-title">EBCDIC input</h2>
+        </div>
+        <textarea id="input" spellcheck="false" autocomplete="off" placeholder="40 C1 C2 C3 …"></textarea>
+        <p class="legend" id="input-help">Hex bytes or characters, see the parsed dump below.</p>
+        <pre class="hex" id="input-dump" aria-label="Parsed input bytes"></pre>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2 id="output-title">ASCII output</h2>
+          <button class="btn" type="button" id="btn-copy">Copy</button>
+        </div>
+        <textarea id="output" spellcheck="false" readonly placeholder="Output appears here…"></textarea>
+        <p class="legend" id="output-help">CP037 · bytes with no printable mapping appear as <code>·</code>.</p>
+      </section>
+    </div>
+
+    <details>
+      <summary>CP037 character map</summary>
+      <p class="hint" style="margin-top:10px;">Printable ASCII characters and their EBCDIC byte (hex), ascending by byte.</p>
+      <div class="map-grid" id="map-grid"></div>
+    </details>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Mainframe Tools — static, local, dependency-free.</p>
+    </div>
+  </footer>
+
+  <script src="js/ebcdic.js" defer></script>
+</body>
+</html>

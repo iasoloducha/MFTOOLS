@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="A simple calculator with keyboard support.">
+  <title>Calculator — Mainframe Tools</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">▚</span>
+        <span>MAINFRAME<span class="brand-accent">TOOLS</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="calculator.html" aria-current="page">Calculator</a>
+        <a href="abends.html">Abends</a>
+        <a href="ebcdic.html">EBCDIC</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>Calculator</h1>
+    <p class="lede">Basic arithmetic. Use the keypad or your keyboard.</p>
+
+    <section class="panel calc" aria-label="Calculator">
+      <div class="calc-screen">
+        <div class="calc-history" id="calc-history" aria-hidden="true"></div>
+        <output class="calc-display" id="calc-display" aria-live="polite">0</output>
+      </div>
+
+      <div class="calc-keys" id="calc-keys">
+        <button class="key key-fn" type="button" data-action="clear" aria-label="All clear">AC</button>
+        <button class="key key-fn" type="button" data-action="sign" aria-label="Toggle sign">±</button>
+        <button class="key key-fn" type="button" data-action="percent" aria-label="Percent">%</button>
+        <button class="key key-op" type="button" data-op="/" aria-label="Divide">÷</button>
+
+        <button class="key" type="button" data-digit="7">7</button>
+        <button class="key" type="button" data-digit="8">8</button>
+        <button class="key" type="button" data-digit="9">9</button>
+        <button class="key key-op" type="button" data-op="*" aria-label="Multiply">×</button>
+
+        <button class="key" type="button" data-digit="4">4</button>
+        <button class="key" type="button" data-digit="5">5</button>
+        <button class="key" type="button" data-digit="6">6</button>
+        <button class="key key-op" type="button" data-op="-" aria-label="Subtract">−</button>
+
+        <button class="key" type="button" data-digit="1">1</button>
+        <button class="key" type="button" data-digit="2">2</button>
+        <button class="key" type="button" data-digit="3">3</button>
+        <button class="key key-op" type="button" data-op="+" aria-label="Add">+</button>
+
+        <button class="key key-zero" type="button" data-digit="0">0</button>
+        <button class="key" type="button" data-action="dot" aria-label="Decimal point">.</button>
+        <button class="key key-equals" type="button" data-action="equals" aria-label="Equals">=</button>
+      </div>
+    </section>
+
+    <p class="hint" style="text-align:center; margin-top:18px;">
+      Keyboard: digits, <kbd>+</kbd> <kbd>-</kbd> <kbd>*</kbd> <kbd>/</kbd>, <kbd>Enter</kbd> (=), <kbd>Backspace</kbd>, <kbd>Esc</kbd> (clear).
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Mainframe Tools — static, local, dependency-free.</p>
+    </div>
+  </footer>
+
+  <script src="js/calculator.js" defer></script>
+</body>
+</html>

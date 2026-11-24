@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Searchable reference of common JCL and COBOL abend codes.">
+  <title>JCL &amp; COBOL Abends — Mainframe Tools</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">▚</span>
+        <span>MAINFRAME<span class="brand-accent">TOOLS</span></span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="calculator.html">Calculator</a>
+        <a href="abends.html" aria-current="page">Abends</a>
+        <a href="ebcdic.html">EBCDIC</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>JCL &amp; COBOL Abends</h1>
+    <p class="lede">Common system and user abend codes with the usual cause and what to check next.</p>
+
+    <div class="notice">
+      <strong>S</strong> = system abend (the code after <code>S</code> is hexadecimal). <strong>U</strong> = user abend (decimal).
+      Always read the job log messages (<code>IEC</code>, <code>IEF</code>, <code>IGZ</code>, <code>CEE</code>) and the dump: the
+      code alone rarely tells the whole story.
+    </div>
+
+    <div class="abend-controls">
+      <input type="search" id="abend-search" placeholder="Search code, meaning or cause…" aria-label="Search abends">
+      <div class="chips" id="abend-chips" role="group" aria-label="Filter by category">
+        <button class="chip" type="button" data-type="all" aria-pressed="true">All</button>
+        <button class="chip" type="button" data-type="Program">Program</button>
+        <button class="chip" type="button" data-type="JCL/Dataset">JCL / Dataset</button>
+        <button class="chip" type="button" data-type="Storage">Storage</button>
+        <button class="chip" type="button" data-type="Security">Security</button>
+        <button class="chip" type="button" data-type="System">System</button>
+        <button class="chip" type="button" data-type="User">User</button>
+      </div>
+      <span class="count" id="abend-count"></span>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Code</th>
+            <th scope="col">Category</th>
+            <th scope="col">Meaning</th>
+            <th scope="col">Common cause</th>
+            <th scope="col">What to check</th>
+          </tr>
+        </thead>
+        <tbody id="abend-body"></tbody>
+      </table>
+      <p class="empty" id="abend-empty" hidden>No abends match your filter.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Mainframe Tools — static, local, dependency-free.</p>
+    </div>
+  </footer>
+
+  <script src="js/abends.js" defer></script>
+</body>
+</html>
